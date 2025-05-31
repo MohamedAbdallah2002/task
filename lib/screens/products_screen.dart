@@ -18,18 +18,21 @@ class ProductListScreen extends StatelessWidget {
           BlocBuilder<CartCubit, CartState>(
             builder: (context, state) {
               if (state is CartLoaded) {
-                return Badge(
-                  label: Text(state.cartItems.length.toString()),
-                  child: IconButton(
-                    icon: const Icon(Icons.shopping_cart),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CartScreen(),
-                        ),
-                      );
-                    },
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Badge(
+                    label: Text(state.cartItems.length.toString()),
+                    child: IconButton(
+                      icon: const Icon(Icons.shopping_cart),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CartScreen(),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 );
               }
